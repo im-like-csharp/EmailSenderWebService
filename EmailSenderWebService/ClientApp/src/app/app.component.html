@@ -1,0 +1,19 @@
+﻿<input *ngIf="tableMode" type="button" value="Отправить письмо" class="btn btn-fa" (click)="add()" 
+       style="color: blueviolet; position: center; margin: 5vh; background-color: lightcyan" />
+
+<div *ngIf="tableMode; else create" class="table table-striped">
+</div>
+<ng-template #create>
+    <div class="form-group">
+        <label>Тема</label>
+        <input type="text" [(ngModel)]="request.subject" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Текст письма</label>
+        <input type="text" [(ngModel)]="request.text" class="form-control" />
+    </div>
+    <div>
+        <input type="button" value="Отправить" (click)="send()" class="btn btn-success" />
+        <input type="button" value="Отмена" (click)="cancel()" class="btn btn-warning" />
+    </div>
+</ng-template>
